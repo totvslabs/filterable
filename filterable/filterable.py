@@ -1,7 +1,7 @@
 import re
 import json
 from sqlalchemy import String, and_, Boolean
-from alertmanager.exceptions.filtering_exception import FilteringException
+from filterable.exceptions.filtering_exception import FilteringException
 from alertmanager.helpers.app_helper import AppHelper
 from alertmanager.models import BaseModel
 from alertmanager.types import JSONB, ARRAY

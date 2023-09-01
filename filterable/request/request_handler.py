@@ -1,4 +1,6 @@
-class AppHelper:
+from filterable.exceptions import NoRequestContextException
+
+class RequestHandler:
     """
     Factory helper workaround to handle requests
     out of a controller context """
@@ -7,14 +9,14 @@ class AppHelper:
 
     @staticmethod
     def request():
-        if AppHelper.__request == None:
+        if RequestHandler.__request == None:
             try:
                 from flask import request
-                AppHelper.__request = request
+                RequestHandler.__request = request
             except ImportError as e:
-                pass 
-        return AppHelper.__request
+                raise NoRequestContextException()
+        return RequestHandler.__request
 
     @staticmethod
     def inject_request(request) -> None:
-        AppHelper.__request = request
+        RequestHandler.__request = request
