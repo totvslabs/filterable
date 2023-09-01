@@ -1,16 +1,16 @@
 import re
 import json
 from sqlalchemy import String, and_, Boolean
+from sqlalchemy.orm import DeclarativeBase
 from filterable.exceptions.filtering_exception import FilteringException
-from alertmanager.helpers.app_helper import AppHelper
-from alertmanager.models import BaseModel
-from alertmanager.types import JSONB, ARRAY
+from filterable.request import RequestHandler
+from filterable.types import JSONB, ARRAY
 
 
-class Filterable:
+class Filterable(RequestHandler):
     """ Decorator Class to handle filtering and sorting data query """
 
-    def __init__(self, Model:BaseModel):
+    def __init__(self, Model:DeclarativeBase):
         self.__Model = Model
 
     def __call__(self, func):
@@ -73,7 +73,7 @@ class Filterable:
             This method uses the __get_filter_condition method internally to
             load query conditions dinamically
         """
-        request_args = AppHelper.request().args
+        request_args = RequestHandler.request().args
         if 'filter' in request_args:
             filters_data = json.loads(request_args['filter'])
             if isinstance(filters_data, list):
@@ -107,7 +107,7 @@ class Filterable:
             This method uses the __get_sort_filter method internally to
                 handle sorting for JSONB fields.
         """
-        request_args = AppHelper.request().args
+        request_args = RequestHandler.request().args
         if 'sort' in request_args:
             sorted_data = json.loads(request_args['sort'])
             if type(sorted_data) == list:
