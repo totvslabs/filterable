@@ -14,7 +14,7 @@ pip install filterable
 
 Aqui está um exemplo de como  aplicar filtros em suas requests utilizando o Filterable:
 
-```php
+```python
 from filterable import Filterable
 from seu_app.models import UsuarioModel
 
