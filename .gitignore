@@ -1,2 +1,5 @@
+.
 .direnv
 .vscode
+dist
+filterable.egg-info
