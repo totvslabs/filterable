@@ -1,3 +1,5 @@
+"""Helper to make PostgreSQL ARRAY type work as JSON in SQLite with SQLAlchemy."""
+
 import sys
 from sqlalchemy import String
 from sqlalchemy.types import JSON

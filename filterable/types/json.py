@@ -3,7 +3,6 @@
 import sys
 from sqlalchemy.types import JSON
 
-
 def JSONB(sqlite_json=JSON):
     """Return a JSONB type, or a JSON type on SQLite."""
     try:
