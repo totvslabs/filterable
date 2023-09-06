@@ -16,7 +16,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.x  # Especifique a versão do Python que você deseja usar
+        python-version: 3.7
 
     - name: Update version in setup.py
       run: |
