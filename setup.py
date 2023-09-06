@@ -12,7 +12,7 @@ requirements = [
 setup(
     name='filterable',
     author="TotvsLabs",
-    version='0.0.3',
+    version='0.0.0',
     author_email='info@totvslabs.com',
     python_requires='>=3.7',
     description="Filterable handler to handle with request filters",
