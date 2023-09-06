@@ -3,3 +3,4 @@
 .vscode
 dist
 filterable.egg-info
+__pycache__
